@@ -32,7 +32,6 @@ public class Principal {
                     System.out.println("1) Buscar por ISBN");
                     System.out.println("2) Buscar por título");
                     System.out.println("3) Buscar por autor");
-                    System.out.println("4) Carga manual");
                     System.out.println("- - - SALIR - - -");
                     var opcion = lectura.nextLine();
                     if(opcion.equalsIgnoreCase("salir")) {
@@ -47,7 +46,7 @@ public class Principal {
                                 if (book != null) {
                                     System.out.println("Título: " + book.title);
                                     biblioteca.add(book);
-                                    System.out.println("Título agregado a la biblioteca en la categoría: " + book.categories[0]);
+                                    System.out.println("Libro agregado a tu biblioteca en la categoría: " + book.categories[0]);
                                     System.out.println("          ");
                                     break;
                                 } else {
@@ -65,11 +64,7 @@ public class Principal {
                                 String title = lectura.nextLine().replace(" ", "+") +
                                         "&apikey=d4d0bf92";
                                 VolumeInfo book = consulta.buscaLibroXtitulo(title);
-                                if(book.categories[0]==null){
-                                    book.categories[0]="S/C";
-                                }if(book.publisher==null){
-                                    book.publisher="S/E";
-                                }
+
                                 biblioteca.add(book);
                                 System.out.println(book.title+" agregado a tu biblioteca en la categoría: "+book.categories[0]);
                                 System.out.println("          ");
@@ -91,8 +86,8 @@ public class Principal {
                                         "&apikey=d4d0bf92";
                                 VolumeInfo book = consulta.buscaLibroXautor(autor);
 
-                                if(book.categories[0]==null){
-                                    book.categories[0]="Universal";
+                                if (book.categories == null || book.categories.length == 0) {
+                                    book.categories = new String[]{"Universal"};
                                 }
                                 biblioteca.add(book);
                                 System.out.println(book.title+" agregado a tu biblioteca en la categoría: "+book.categories[0]);
@@ -108,13 +103,6 @@ public class Principal {
                             System.out.println(".-.-.-..-.-");
                             System.out.println("          ");
                             break;
-                        case "4":
-                            System.out.println(".-.-.-..-.-");
-                            System.out.println("En construcción");
-                            System.out.println(".-.-.-..-.-");
-                            System.out.println("          ");
-                            break;
-
                     }
                     break;
                 case "2":

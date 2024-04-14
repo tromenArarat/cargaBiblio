@@ -54,25 +54,25 @@ public VolumeInfo buscaLibroXtitulo(String titulo) {
             System.out.println("Seleccione autor:");
             for (int i = 0; i < size; i++) {
                 Item broli = googleBooksResponse.items.get(i);
+                if (broli.volumeInfo.categories == null || broli.volumeInfo.categories.length == 0) {
+                    broli.volumeInfo.categories = new String[]{"Universal"};
+                }
+                if(broli.volumeInfo.publisher==null){
+                    broli.volumeInfo.publisher = new String("S/E");
+                }if(broli.volumeInfo.authors==null|| broli.volumeInfo.authors.length == 0){
+                    broli.volumeInfo.authors = new String[]{"S/A"};
+                }
                 System.out.println("("+i+") "+ broli.volumeInfo.title + " De: "+broli.volumeInfo.authors[0]+" Publicado por: "+broli.volumeInfo.publisher);
             }
             int rta = lectura.nextInt();
-            VolumeInfo eleccion = new VolumeInfo();
-            try{
-                eleccion = googleBooksResponse.items.get(rta).volumeInfo;
-                return eleccion;
-            }catch (Exception e){
-                System.out.println(e.getMessage());
-            }
-
-            return eleccion;
+            return googleBooksResponse.items.get(rta).volumeInfo;
         } catch (Exception e) {
             throw new RuntimeException("No encontré ese libro o hubo un problema de conexión.");
         }
     }
 
     public VolumeInfo buscaLibroXautor(String autor) {
-        Scanner lectura = new Scanner(System.in);
+        Scanner lecture = new Scanner(System.in);
         URI direccion = URI.create("https://www.googleapis.com/books/v1/volumes?q=" + autor);
 
         HttpClient client = HttpClient.newHttpClient();
@@ -98,7 +98,7 @@ public VolumeInfo buscaLibroXtitulo(String titulo) {
                 }
                 System.out.println("("+i+") "+broli.volumeInfo.title+" Publicado por: "+broli.volumeInfo.publisher);
             }
-            int rta = lectura.nextInt();
+            int rta = lecture.nextInt();
 
 
             return googleBooksResponse.items.get(rta).volumeInfo;
