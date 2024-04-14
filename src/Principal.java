@@ -66,7 +66,9 @@ public class Principal {
                                         "&apikey=d4d0bf92";
                                 VolumeInfo book = consulta.buscaLibroXtitulo(title);
                                 if(book.categories[0]==null){
-                                    book.categories[0]="Universal";
+                                    book.categories[0]="S/C";
+                                }if(book.publisher==null){
+                                    book.publisher="S/E";
                                 }
                                 biblioteca.add(book);
                                 System.out.println(book.title+" agregado a tu biblioteca en la categoría: "+book.categories[0]);
@@ -134,8 +136,9 @@ public class Principal {
                     break;
                 case "4":
 //                    break;
+                    biblioteca.sort(Comparator.comparing(volumeInfo -> volumeInfo.authors[0]));
                     System.out.println(".-.-.-..-.-");
-                    System.out.println("En construcción");
+                    System.out.println("Biblioteca ordenada por autores");
                     System.out.println(".-.-.-..-.-");
                     System.out.println("          ");
                     break;
