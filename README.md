@@ -1,1 +1,1 @@
-Ejercicio de consumo de API como práctica en formación Backend de Alura Latam para el programa Oracle Next Generation.
+Ejercicio de consumo de API como práctica para la formación Backend de Alura Latam programa Oracle Next Generation.
