@@ -19,3 +19,6 @@ A continuación imágenes del menú a modo ilustrativo:
 ![demostracion_consola](https://github.com/tromenArarat/cargaBiblio/assets/3432106/097573a9-1cc9-4100-9c19-c20f1f6a9c39)
 
 ![image](https://github.com/tromenArarat/cargaBiblio/assets/3432106/3fa82b6c-beb1-4ae6-9581-ba0324d3f54b)
+
+<h4>Profesor: Bruno Darío Fernández Ellerbach</h4>
+https://github.com/bfjeje
