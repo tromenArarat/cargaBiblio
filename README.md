@@ -22,3 +22,5 @@ A continuación imágenes del menú a modo ilustrativo:
 
 <h4>Profesor: Bruno Darío Fernández Ellerbach</h4>
 https://github.com/bfjeje
+
+#aluralatam Versión libre del challenge "conversor de monedas"
