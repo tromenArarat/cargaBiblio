@@ -35,7 +35,7 @@ public class ConsultaLibro {
 
 public VolumeInfo buscaLibroXtitulo(String titulo) {
         Scanner lectura = new Scanner(System.in);
-        URI direccion = URI.create("https://www.googleapis.com/books/v1/volumes?q=" + titulo);
+        URI direccion = URI.create("https://www.googleapis.com/books/v1/volumes?=q" + titulo);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

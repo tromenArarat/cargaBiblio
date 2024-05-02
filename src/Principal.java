@@ -9,11 +9,10 @@ public class Principal {
         Scanner lectura = new Scanner(System.in);
         ConsultaLibro consulta = new ConsultaLibro();
         List<VolumeInfo> biblioteca = new ArrayList<>();
-
+        System.out.println("-x-|-x-x-|-x-x-|-x-x-|-x-");
+        System.out.println("-_- Registro de libros -_-");
+        System.out.println("-x-|-x-x-|-x-x-|-x-x-|-x-");
         while(true){
-            System.out.println("-x-|-x-x-|-x-x-|-x-x-|-x-");
-            System.out.println("-_- Registro de libros -_-");
-            System.out.println("-x-|-x-x-|-x-x-|-x-x-|-x-");
             System.out.println("Elija una opción:");
             System.out.println("1) Cargar");
             System.out.println("2) Ver cargados");
@@ -61,8 +60,7 @@ public class Principal {
                         case "2":
                             try {
                                 System.out.println("Título del libro que desea cargar:");
-                                String title = lectura.nextLine().replace(" ", "+") +
-                                        "&apikey=d4d0bf92";
+                                String title = lectura.nextLine().replace(" ", "+");
                                 VolumeInfo book = consulta.buscaLibroXtitulo(title);
 
                                 biblioteca.add(book);
@@ -82,8 +80,7 @@ public class Principal {
                         case "3":
                             try {
                                 System.out.println("Autor del libro que desea cargar:");
-                                String autor = lectura.nextLine().replace(" ", "+") +
-                                        "&apikey=d4d0bf92";
+                                String autor = lectura.nextLine().replace(" ", "+");
                                 VolumeInfo book = consulta.buscaLibroXautor(autor);
 
                                 if (book.categories == null || book.categories.length == 0) {
